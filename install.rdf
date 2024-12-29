@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:id>logseqserver@sanderborst.nl</em:id>
+        <em:name>LogseqServer</em:name>
+        <em:version>0.0.1</em:version>
+        <em:type>2</em:type>
+        <em:multiprocessCompatible>true</em:multiprocessCompatible>
+        <em:description>Zotero Local Server for Logseq integration</em:description>
+        <em:creator>mathcals</em:creator>
+        <em:homepageURL>http://github.com/mathcals</em:homepageURL>
+        <em:optionsURL>chrome://logseqserver/content/options.xul</em:optionsURL>
+        <em:updateURL>https://raw.githubusercontent.com/mathcals/zotero-logseqserver/master/update.rdf</em:updateURL>
+        <em:targetApplication>
+            <Description>
+                <em:id>zotero@chnm.gmu.edu</em:id>
+                <em:minVersion>6.0.0</em:minVersion>
+                <em:maxVersion>7.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>
+</RDF>

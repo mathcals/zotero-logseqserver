@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "logseqserver",
+  "version": "1.1",
+  "description": "Logseq Local Server for Zotero integration",
+  "author": "sanderborst.nl",
+  "applications": {
+    "zotero": {
+      "id": "logseqserver@sanderborst.nl",
+      "update_url": "https://raw.githubusercontent.com/mathcals/zotero-logseqserver/master/updates.json",
+      "strict_min_version": "6.999",
+      "strict_max_version": "7.0.*"
+    }
+  }
+}

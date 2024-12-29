@@ -1,0 +1,50 @@
+name: release
+
+on:
+  push:
+    tags: ['*']
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.9]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: verify versions
+        run: if [ "${{ github.ref_name }}" != "$(make version)" ]; then exit 1; fi
+      - name: node version ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: npm install
+        run: npm install --no-optional
+      - name: npm build
+        run: npm run build
+      - name: build artifacts
+        run: make
+      - name: release
+        uses: actions/create-release@v1
+        id: release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: upload build
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ./zotserver-${{ github.ref_name }}.xpi
+          asset_name: zotserver-${{ github.ref_name }}.xpi
+          asset_content_type: application/gzip

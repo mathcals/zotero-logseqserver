@@ -1,0 +1,2 @@
+content	logseqserver				chrome/content/logseqserver/
+overlay	chrome://zotero/content/zoteroPane.xul	chrome://logseqserver/content/overlay.xul

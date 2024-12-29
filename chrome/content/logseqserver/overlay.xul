@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<overlay id="zotserver-overlay"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script src="chrome://zotero/content/include.js"/>
+	<script>
+        if (!Zotero.LogseqServer) {
+            var loader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+                .getService(Components.interfaces.mozIJSSubScriptLoader);
+            loader.loadSubScript("chrome://logseqserver/content/main.js");
+        }
+        window.addEventListener('load', function (e) {
+            Zotero.LogseqServer.start();
+        }, false);
+    </script>
+</overlay>
