@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: verify versions
-        run: if [ "${{ github.ref_name }}" != "$(make version)" ]; then exit 1; fi
+        run: if [ "${{ github.ref_name }}" != "v$(make version)" ]; then exit 1; fi
       - name: node version ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
