@@ -2,7 +2,9 @@ name: release
 
 on:
   push:
-    tags: ['*']
+    tags:
+      - "v*.*.*"
+
 
 jobs:
   release:
@@ -45,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: ./zotserver-${{ github.ref_name }}.xpi
-          asset_name: zotserver-${{ github.ref_name }}.xpi
+          asset_path: ./logseqserver.xpi
+          asset_name: logseqserver-${{ github.ref_name }}.xpi
           asset_content_type: application/gzip
