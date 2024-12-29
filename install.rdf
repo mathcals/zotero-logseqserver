@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>logseqserver@sanderborst.nl</em:id>
         <em:name>LogseqServer</em:name>
-        <em:version>0.0.1</em:version>
+        <em:version>0.2.1</em:version>
         <em:type>2</em:type>
         <em:multiprocessCompatible>true</em:multiprocessCompatible>
         <em:description>Zotero Local Server for Logseq integration</em:description>
